@@ -16,7 +16,6 @@ def analyze(request):
   user_url =  request.GET['userUrlPhoto']
   api_key = 'acc_18c42d78bf628e4'
   api_secret = '20f06b8787e07e922f0a1a2c154fbb39'
-  # image_url = 'https://3.bp.blogspot.com/-OKZulGGHFow/T108ydYipgI/AAAAAAAAWOw/UPqiBgguz7E/s1600/Imagenes-de-Carros-Deportivos_10.jpg'
   
   # make the HTTP request payload with the image URL
   response = requests.get('https://api.imagga.com/v2/tags?image_url=%s' % user_url, auth=(api_key, api_secret))
@@ -35,18 +34,20 @@ def analyze(request):
   for item in response_dictionary["result"]["tags"]:
     if item["confidence"] > 50:
       trusty_results.append(item)
-  
-  # print(f'{"-" * 25} Image AI Detector {"-" * 25}\n')
-  # print(f'Your Image From: {user_url}\n')
-  # print(f'Has the following characteristics:\n')
+
   # iterate each item of trusty_results and print its name and confidence
   for feature in trusty_results:
     print(f'({counter}) {feature["tag"]["en"].upper()} with {round(feature["confidence"], 2)}% confidence')
     counter = counter + 1
 
+
+#-----------------------------------------------------#
+  # list for testing to avoid the use of the API
+  # trusty_results = [{'confidence': 69.5724258422852, 'tag': {'en': 'tree'}}, {'confidence': 61.9523582458496, 'tag': {'en': 'lakeside'}}, {'confidence': 61.5426292419434, 'tag': {'en': 'shore'}}, {'confidence': 58.9639549255371, 'tag': {'en': 'landscape'}}, {'confidence': 55.575325012207, 'tag': {'en': 'water'}}]
+
   context = {
     'user_url': request.GET['userUrlPhoto'],
-    'data_results': trusty_results
+    'trusty_results': trusty_results
   }
   
   return render(request, 'analyze.html', context)
