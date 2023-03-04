@@ -53,13 +53,23 @@ main {
   box-sizing: border-box;
 }
 
-main h3 {
-  color: white;
-  font-size: 18px;
+.h3_container {
+  background-color: rgba(255, 255, 255, 0.073);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
   text-align: center;
   border: 2px solid white;
   border-radius: 5px;
   padding: 10px;
+}
+
+.h3_container h3 {
+  color: white;
+  font-size: 18px;
 }
 
 .span_user_url {
@@ -72,14 +82,53 @@ main h3 {
 }
 
 .img_container {
-  width: 300px;
-  height: 150px;
   overflow: hidden;
   margin: 30px 30px;
+  border: 2px solid white;
+  border-radius: 10px;
 }
 
 .img_container img {
   width: 100%;
   height: 100%;
-  display: block;
+  color: white;
+  transition: transform 0.5s;
+}
+
+.img_container img:hover {
+  transform: scale(1.5);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table caption {
+  font-weight: 25px;
+  font-weight: bold;
+  color: white;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+tr:nth-child(odd) {
+  background-color: #c3c3c3
+}
+
+th {
+  background-color: #04AA6D;
+  color: white;
 }

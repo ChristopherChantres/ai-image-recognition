@@ -14,13 +14,30 @@
     </header>
     <section>
       <main>
-        <h3>Your Image Link Is: <span class="span_user_url"><a href="{{ user_url }}">{{ user_url }}</a></span></h3>
-        <div class="img_container">
-          <img src="{{ user_url }}" alt="No imge available*">
+        <div class="h3_container">
+          <h3>Your Image Link Is: <span class="span_user_url"><a href="{{ user_url }}" target="_blank">{{ user_url }}</a></span></h3>
         </div>
-        {% for item in trusty_results %}
-          <p>Property is: {{ item.tag.en|upper }} ---- Confidence is: {{ item.confidence|floatformat:2 }}%</p>
-        {% endfor %}
+        <div class="img_container">
+          <img src="{{ user_url }}" alt="*No image available*">
+        </div>
+        <table>
+          <caption>Characteristics of the image:</caption>
+          <tr>
+            <th>Property</th>
+            <th>Confidence</th>
+          </tr>
+          {% for item in trusty_results %}
+            <tr>
+              <td>
+                {{ item.tag.en|upper }}
+              </td>
+              <td>
+                {{ item.confidence|floatformat:2 }}%
+              </td>
+            </tr>
+            {% comment %} <p>Property is: {{ item.tag.en|upper }} ---- Confidence is: {{ item.confidence|floatformat:2 }}%</p> {% endcomment %}
+          {% endfor %}
+      </table>
       </main>
     </section>    
   </body>
