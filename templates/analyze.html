@@ -1,17 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/analyze.css' %}">
     <title>AI Analyzer</title>
   </head>
   <body>
-    <h1>AI Analyzer</h1>
-    <h3>Your Image Link Is: {{ user_url }}</h3>
-    <img src="{{ user_url }}" alt="image_to_be_analyzed">
-    {% for item in trusty_results %}
-      <p>Property is: {{ item.tag.en|upper }} ---- Confidence is: {{ item.confidence|floatformat:2 }}%</p>
-    {% endfor %}
+    <header>
+      <h1>AI Analyzer</h1>
+    </header>
+    <section>
+      <main>
+        <h3>Your Image Link Is: <span class="span_user_url"><a href="{{ user_url }}">{{ user_url }}</a></span></h3>
+        <div class="img_container">
+          <img src="{{ user_url }}" alt="No imge available*">
+        </div>
+        {% for item in trusty_results %}
+          <p>Property is: {{ item.tag.en|upper }} ---- Confidence is: {{ item.confidence|floatformat:2 }}%</p>
+        {% endfor %}
+      </main>
+    </section>    
   </body>
 </html>
