@@ -1,5 +1,6 @@
 :root {
   --green-dark: rgb(3, 34, 39);
+  --green-soft: #04AA6D;
 }
 
 * {
@@ -8,12 +9,19 @@
   padding: 0px;
 }
 
+body {
+  background-color: var(--green-dark);
+}
+
 header {
   width: 100%;
   height: auto;
   text-align: center;
   background-color: var(--green-dark);
+  border-bottom: 10px double var(--green-soft);
+  margin-bottom: 30px;
 }
+
 
 header h1 {
   padding: 30px;
@@ -33,9 +41,9 @@ section {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: var(--green-dark);
+  /* background-color: var(--green-dark); */
   width: 100vw;
-  height: 100vh;
+  height: auto;
 }
 
 main {
@@ -129,6 +137,23 @@ tr:nth-child(odd) {
 }
 
 th {
-  background-color: #04AA6D;
+  background-color: var(--green-soft);
   color: white;
+}
+
+footer {
+  background-color: var(--green-soft);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 80px;
+  margin-top: 50px;
+}
+
+footer div a {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
 }
