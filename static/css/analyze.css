@@ -20,10 +20,12 @@ header {
   background-color: var(--green-dark);
   border-bottom: 10px double var(--green-soft);
   margin-bottom: 30px;
+  padding: 20px 0px;
 }
 
-
-header h1 {
+header h1 a {
+  text-decoration: none;
+  color: white;
   padding: 30px;
   color: #fff;
   text-shadow:
@@ -94,6 +96,9 @@ main {
   margin: 30px 30px;
   border: 2px solid white;
   border-radius: 10px;
+  cursor: pointer;
+  max-height: 700px;
+  max-width: 900px;
 }
 
 .img_container img {
@@ -101,6 +106,7 @@ main {
   height: 100%;
   color: white;
   transition: transform 0.5s;
+  cursor: zoom-in;
 }
 
 .img_container img:hover {
@@ -139,6 +145,30 @@ tr:nth-child(odd) {
 th {
   background-color: var(--green-soft);
   color: white;
+}
+
+.analyze_button {
+  height: 140px;
+  width: 140px;
+  border-radius: 360px;
+  border: 2px solid yellow;
+  margin-top: 20px;
+  background-color: rgb(0, 122, 51);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all .05s ease-in-out;
+}
+
+.analyze_button:hover {
+  border: 6px solid var(--green-soft);
+  background-color: rgb(0, 89, 89);
+}
+
+.analyze_button:active {
+  border: 6px solid rgb(134, 255, 138);
+  background-color: rgb(1, 59, 80);
 }
 
 footer {

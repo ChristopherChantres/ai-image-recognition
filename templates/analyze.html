@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <h1>AI Analyzer</h1>
+      <h1><a href="/">AI Analyzer</a></h1>
     </header>
     <section>
       <main>
@@ -35,15 +35,16 @@
                 {{ item.confidence|floatformat:2 }}%
               </td>
             </tr>
-            {% comment %} <p>Property is: {{ item.tag.en|upper }} ---- Confidence is: {{ item.confidence|floatformat:2 }}%</p> {% endcomment %}
           {% endfor %}
       </table>
+      <button class="analyze_button" onclick="hrefFunction()">New Analyze</button>
       </main>
     </section>
     <footer>
       <div>
         <a href="https://github.com/ChristopherChantres">Christopher Chantres</a>
       </div>
-    </footer>    
+    </footer>
+    <script type="text/javascript" src="{% static 'js/analyze.js' %}"></script> 
   </body>
 </html>

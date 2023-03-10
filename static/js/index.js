@@ -1,1 +1,1 @@
-alert('You are happily hacking!');
+console.log('You are happily hacking!');
