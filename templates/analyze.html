@@ -1,17 +1,50 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/analyze.css' %}">
     <title>AI Analyzer</title>
   </head>
   <body>
-    <h1>AI Analyzer</h1>
-    <h3>Your Image Link Is: {{ user_url }}</h3>
-    <img src="{{ user_url }}" alt="image_to_be_analyzed">
-    {% for item in trusty_results %}
-      <p>Property is: {{ item.tag.en|upper }} ---- Confidence is: {{ item.confidence|floatformat:2 }}%</p>
-    {% endfor %}
+    <header>
+      <h1><a href="/">AI Analyzer</a></h1>
+    </header>
+    <section>
+      <main>
+        <div class="h3_container">
+          <h3>Your Image Link Is: <span class="span_user_url"><a href="{{ user_url }}" target="_blank">{{ user_url }}</a></span></h3>
+        </div>
+        <div class="img_container">
+          <img src="{{ user_url }}" alt="*No image available*">
+        </div>
+        <table>
+          <caption>Characteristics of the image:</caption>
+          <tr>
+            <th>Property</th>
+            <th>Confidence</th>
+          </tr>
+          {% for item in trusty_results %}
+            <tr>
+              <td>
+                {{ item.tag.en|upper }}
+              </td>
+              <td>
+                {{ item.confidence|floatformat:2 }}%
+              </td>
+            </tr>
+          {% endfor %}
+      </table>
+      <button class="analyze_button" onclick="hrefFunction()">New Analyze</button>
+      </main>
+    </section>
+    <footer>
+      <div>
+        <a href="https://github.com/ChristopherChantres">Christopher Chantres</a>
+      </div>
+    </footer>
+    <script type="text/javascript" src="{% static 'js/analyze.js' %}"></script> 
   </body>
 </html>
